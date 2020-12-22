@@ -4,7 +4,8 @@
  * @Date: 2020-12-21 14:08:13
  */
 import 'package:flutter/material.dart';
-import 'package:flutter_dochub/home/home_page.dart';
+import 'package:flutter_dochub/pages/home/containers/home_page.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,12 +39,14 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   }
 
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
         home: Scaffold(
-          appBar: null,
+          appBar: AppBar(
+            title: Text('Home'),
+          ),
           body: TabBarView(
             children: [
               HomePage(),
