@@ -44,36 +44,44 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
           primarySwatch: Colors.blue,
         ),
         home: Scaffold(
-          appBar: AppBar(
-            title: Text('Home'),
-          ),
-          body: TabBarView(
-            children: [
-              HomePage(),
-              HomePage(),
-              HomePage(),
-            ],
-            controller: tabController,
-          ),
-          bottomNavigationBar: Material(
-            child: SafeArea(
-              child: Container(
-                height: 65.0,
-                padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(50.0),
-                    ),
-                    color: Colors.red),
-                child: new TabBar(
-                  controller: tabController,
-                  indicatorWeight: 0.1,
-                  unselectedLabelColor: const Color(0xFF8E8E8E),
-                  tabs: myTabs,
-                ),
-              ),
+            appBar: AppBar(
+              title: Text('Home'),
             ),
-          ),
-        ));
+            body: TabBarView(
+              children: [
+                HomePage(),
+                HomePage(),
+                HomePage(),
+              ],
+              controller: tabController,
+            ),
+            bottomNavigationBar: Container(
+              height: 40,
+              color: Colors.blue,
+            )));
   }
+}
+
+Widget createBottomNavigationBar(controller, tabs) {
+  return Container(
+    color: Colors.blue,
+    child: SafeArea(
+      child: Container(
+        height: 65.0,
+        width: 100.0,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(50.0),
+          ),
+          color: Colors.red,
+        ),
+        child: new TabBar(
+          controller: controller,
+          indicatorWeight: 0.1,
+          unselectedLabelColor: const Color(0xFF8E8E8E),
+          tabs: tabs,
+        ),
+      ),
+    ),
+  );
 }

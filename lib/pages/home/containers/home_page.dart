@@ -31,6 +31,7 @@ Widget createStatusWidget() {
               var data =
                   await Get.to(HomePageDetail(), arguments: {'arguments': 11});
               print('data===$data');
+              //  Navigator.of(null).push(null);
             },
           ),
           SizedBox(height: 20),
